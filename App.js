@@ -1,18 +1,9 @@
 import { View } from "react-native";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 const App = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "row",
-        backgroundColor: "#fff",
-      }}
-    >
-      <WelcomeScreen />
-    </View>
-  );
+  return <ViewImageScreen />;
 };
 
 export default App;
