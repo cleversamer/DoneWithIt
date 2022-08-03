@@ -10,24 +10,10 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Icon from "./app/components/Icon";
 import Screen from "./app/components/Screen";
 import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
 
 const App = () => {
-  return (
-    <Screen>
-      <ListItem
-        title="My title"
-        // subTitle="My subtitle"
-        Icon={
-          <Icon
-            name="email"
-            size={50}
-            backgroundColor="red"
-            iconColor="white"
-          />
-        }
-      />
-    </Screen>
-  );
+  return <AccountScreen />;
 };
 
 export default App;

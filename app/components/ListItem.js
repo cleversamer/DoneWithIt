@@ -13,12 +13,13 @@ const ListItem = ({
   subTitle,
   onPress,
   renderRightActions,
+  style,
 }) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight onPress={onPress} underlayColor={colors.lightgrey}>
-          <View style={styles.container}>
+          <View style={[styles.container, style]}>
             {Icon}
             {image && <Image style={styles.image} source={image} />}
 
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: colors.lightgrey,
   },
   detailsContainer: {
     marginLeft: 10,
@@ -50,9 +52,10 @@ const styles = StyleSheet.create({
     borderRadius: 35,
   },
   title: {
-    fontWeight: "500",
+    fontWeight: "bold",
   },
   subTitle: {
+    fontSize: 14,
     color: colors.grey,
   },
 });
