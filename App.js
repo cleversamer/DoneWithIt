@@ -6,11 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "./app/components/AppButton";
 
 const App = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppButton onPress={() => alert("Logged in!!")}>Login</AppButton>
-    </View>
-  );
+  return <WelcomeScreen />;
 };
 
 export default App;
