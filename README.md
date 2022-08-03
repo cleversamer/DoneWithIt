@@ -17,6 +17,7 @@ A market place for selling the stuff people don't need anymore.
 - React DOM
 - React Native
 - React Native Community/Hooks
+- React Native Gesture Handler
 - React Native Web
 
 ### Installing
