@@ -5,10 +5,10 @@ import AppText from "./app/components/AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
-import ListingDetailsView from "./app/screens/ListingDetailsScreen";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 const App = () => {
-  return <ListingDetailsView />;
+  return <ListingDetailsScreen />;
 };
 
 export default App;

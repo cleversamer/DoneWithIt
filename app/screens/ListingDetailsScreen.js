@@ -2,7 +2,7 @@ import { StyleSheet, Image, View } from "react-native";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 
-const ListingDetailsView = (props) => {
+const ListingDetailsScreen = (props) => {
   return (
     <View>
       <Image style={styles.image} source={require("../assets/jacket.jpg")} />
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListingDetailsView;
+export default ListingDetailsScreen;
