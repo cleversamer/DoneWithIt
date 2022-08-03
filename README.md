@@ -9,10 +9,14 @@ A market place for selling the stuff people don't need anymore.
 ### Dependencies
 
 - Expo
+- Expo Constants
 - Expo Status Bar
+- Expo Updates
+- Expo Vector Icons
 - React
 - React DOM
 - React Native
+- React Native Community/Hooks
 - React Native Web
 
 ### Installing
