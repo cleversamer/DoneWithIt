@@ -30,6 +30,7 @@ const MessagesScreen = (props) => {
             image={item.image}
             title={item.title}
             subTitle={item.description}
+            onPress={() => alert("Message clicked")}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
