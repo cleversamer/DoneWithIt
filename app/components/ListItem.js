@@ -18,7 +18,8 @@ const ListItem = ({ image, title, subTitle }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 20,
   },
   image: {
     width: 70,
