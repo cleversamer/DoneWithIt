@@ -1,5 +1,6 @@
 import { StyleSheet, Image, View } from "react-native";
 import AppText from "../components/AppText";
+import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 
 const ListingDetailsScreen = (props) => {
@@ -13,6 +14,12 @@ const ListingDetailsScreen = (props) => {
           $100
         </AppText>
       </View>
+
+      <ListItem
+        image={require("../assets/mosh.jpg")}
+        title="Mosh Hamedani"
+        subTitle="5 listings"
+      />
     </View>
   );
 };
