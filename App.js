@@ -9,11 +9,23 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import Icon from "./app/components/Icon";
 import Screen from "./app/components/Screen";
+import ListItem from "./app/components/ListItem";
 
 const App = () => {
   return (
     <Screen>
-      <Icon name="email" size={50} backgroundColor="red" iconColor="white" />
+      <ListItem
+        title="My title"
+        // subTitle="My subtitle"
+        Icon={
+          <Icon
+            name="email"
+            size={50}
+            backgroundColor="red"
+            iconColor="white"
+          />
+        }
+      />
     </Screen>
   );
 };
