@@ -1,5 +1,5 @@
-import { FlatList, SafeAreaView, StyleSheet } from "react-native";
-import Constants from "expo-constants";
+import { FlatList } from "react-native";
+import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 
 const MessagesScreen = (props) => {
@@ -19,7 +19,7 @@ const MessagesScreen = (props) => {
   ];
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Screen>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -32,14 +32,8 @@ const MessagesScreen = (props) => {
           />
         )}
       />
-    </SafeAreaView>
+    </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight,
-  },
-});
 
 export default MessagesScreen;
