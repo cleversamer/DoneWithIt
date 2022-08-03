@@ -6,6 +6,7 @@ import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const MessagesScreen = (props) => {
+  const [refreshing, setRefreshing] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -29,7 +30,10 @@ const MessagesScreen = (props) => {
     <Screen>
       <FlatList
         data={messages}
+        ItemSeparatorComponent={ListItemSeparator}
         keyExtractor={(message) => message.id.toString()}
+        onRefresh={() => setMessages([messages[0]])}
+        refreshing={refreshing}
         renderItem={({ item, index, separators }) => (
           <ListItem
             key={index}
@@ -44,7 +48,6 @@ const MessagesScreen = (props) => {
             )}
           />
         )}
-        ItemSeparatorComponent={ListItemSeparator}
       />
     </Screen>
   );

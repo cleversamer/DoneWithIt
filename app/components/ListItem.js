@@ -6,7 +6,15 @@ import {
 import AppText from "./AppText";
 import colors from "../config/colors";
 
-const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
+const ListItem = ({
+  image,
+  title,
+  subTitle,
+  onPress,
+  refreshing,
+  onRefresh,
+  renderRightActions,
+}) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
