@@ -12,9 +12,15 @@ import Screen from "./app/components/Screen";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import { TextInput } from "react-native-gesture-handler";
+import AppTextInput from "./app/components/AppTextInput";
 
 const App = () => {
-  return <ListingsScreen />;
+  return (
+    <Screen>
+      <AppTextInput icon="account" placeholder="Username" maxLength={5} />
+    </Screen>
+  );
 };
 
 export default App;
