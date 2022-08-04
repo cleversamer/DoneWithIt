@@ -1,5 +1,4 @@
 import MessagesScreen from "./app/screens/MessagesScreen";
-
 const App = () => {
   return <MessagesScreen />;
 };
