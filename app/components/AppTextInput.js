@@ -1,5 +1,6 @@
-import { View, TextInput, StyleSheet, Platform } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
 import Icon from "./Icon";
+import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 
 const AppTextInput = ({ icon, ...others }) => {
@@ -12,7 +13,7 @@ const AppTextInput = ({ icon, ...others }) => {
           iconColor={colors.grey}
         />
       )}
-      <TextInput style={styles.textInput} {...others} />
+      <TextInput style={[defaultStyles.text, styles.textInput]} {...others} />
     </View>
   );
 };
@@ -27,11 +28,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   textInput: {
-    fontSize: 16,
-    marginLeft: 10,
-    fontFamily: Platform.OS === "ios" ? "Avenir" : "Roboto",
     flex: 1,
-    color: colors.black,
   },
 });
 
