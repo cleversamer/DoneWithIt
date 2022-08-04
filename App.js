@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Switch, Text, View } from "react-native";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AppText from "./app/components/AppText";
@@ -14,11 +14,37 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import { TextInput } from "react-native-gesture-handler";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import { useState } from "react";
+
+const categories = [
+  {
+    label: "Furniture",
+    value: 1,
+  },
+  {
+    label: "Clothing",
+    value: 2,
+  },
+  {
+    label: "Cameras",
+    value: 3,
+  },
+];
 
 const App = () => {
+  const [category, setCategory] = useState(categories[0]);
+
   return (
     <Screen>
-      <AppTextInput icon="account" placeholder="Username" maxLength={5} />
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        icon="apps"
+        items={categories}
+        placeholder="Select category"
+      />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
 };
