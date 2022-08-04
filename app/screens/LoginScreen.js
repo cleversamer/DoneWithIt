@@ -6,6 +6,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
+import ErrorMessage from "../components/ErrorMessage";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -38,7 +39,7 @@ const LoginScreen = () => {
               textContentType="emailAddress"
             />
 
-            <AppText style={styles.error}>{errors["email"]}</AppText>
+            <ErrorMessage error={errors["email"]} />
 
             <AppTextInput
               autoCapitalize="none"
@@ -50,7 +51,7 @@ const LoginScreen = () => {
               textContentType="password"
             />
 
-            <AppText style={styles.error}>{errors["password"]}</AppText>
+            <ErrorMessage error={errors["password"]} />
 
             <AppButton onPress={handleSubmit}>Login</AppButton>
           </>
@@ -70,11 +71,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 50,
     marginBottom: 20,
-  },
-  error: {
-    color: colors.danger,
-    fontSize: 12,
-    marginLeft: 20,
   },
 });
 
