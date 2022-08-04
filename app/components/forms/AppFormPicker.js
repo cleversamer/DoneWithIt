@@ -8,7 +8,6 @@ import {
   FlatList,
 } from "react-native";
 import Icon from "../Icon";
-import defaultStyles from "../../config/styles";
 import colors from "../../config/colors";
 import AppText from "../AppText";
 import PickerItem from "../PickerItem";
@@ -16,7 +15,7 @@ import { useFormikContext } from "formik";
 
 const AppFormPicker = ({ icon, placeholder, items, name }) => {
   const { setFieldValue } = useFormikContext();
-  const [selectedItem, setSelectedItem] = useState(items[0]);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const handleSelectItem = (item) => {
@@ -35,9 +34,11 @@ const AppFormPicker = ({ icon, placeholder, items, name }) => {
             iconColor={colors.grey}
           />
 
-          <AppText style={[defaultStyles.text, styles.text]}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
 
           <Icon
             name="chevron-down"
@@ -75,6 +76,10 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 10,
     marginVertical: 10,
+  },
+  placeholder: {
+    color: colors.grey,
+    flex: 1,
   },
   text: {
     flex: 1,
