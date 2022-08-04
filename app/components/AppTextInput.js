@@ -3,9 +3,9 @@ import Icon from "./Icon";
 import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 
-const AppTextInput = ({ icon, ...others }) => {
+const AppTextInput = ({ icon, width = "100%", ...others }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       {icon && (
         <Icon
           name={icon}
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightgrey,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     marginVertical: 10,
   },
   textInput: {

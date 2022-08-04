@@ -13,7 +13,7 @@ import AppText from "../AppText";
 import PickerItem from "../PickerItem";
 import { useFormikContext } from "formik";
 
-const AppFormPicker = ({ icon, placeholder, items, name }) => {
+const AppFormPicker = ({ icon, placeholder, items, name, width = "100%" }) => {
   const { setFieldValue } = useFormikContext();
   const [selectedItem, setSelectedItem] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +27,7 @@ const AppFormPicker = ({ icon, placeholder, items, name }) => {
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setShowModal(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           <Icon
             name={icon}
             backgroundColor={colors.lightgrey}
@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     flexDirection: "row",
     alignItems: "center",
-    width: "100%",
     padding: 10,
     marginVertical: 10,
   },
