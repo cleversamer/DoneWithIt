@@ -15,38 +15,10 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import { TextInput } from "react-native-gesture-handler";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
-import { useState } from "react";
-
-const categories = [
-  {
-    label: "Furniture",
-    value: 1,
-  },
-  {
-    label: "Clothing",
-    value: 2,
-  },
-  {
-    label: "Cameras",
-    value: 3,
-  },
-];
+import LoginScreen from "./app/screens/LoginScreen";
 
 const App = () => {
-  const [category, setCategory] = useState(categories[0]);
-
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-        icon="apps"
-        items={categories}
-        placeholder="Select category"
-      />
-      <AppTextInput icon="email" placeholder="Email" />
-    </Screen>
-  );
+  return <LoginScreen />;
 };
 
 export default App;
