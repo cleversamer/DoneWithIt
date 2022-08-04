@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   subTitle: {
-    fontSize: 14,
+    fontSize: 13,
     color: colors.grey,
   },
 });
