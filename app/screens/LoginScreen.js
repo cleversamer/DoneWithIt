@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import AppFormField from "../components/AppFormField";
 import AppSubmitButton from "../components/AppSubmitButton";
+import AppForm from "../components/AppForm";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -20,37 +21,33 @@ const LoginScreen = () => {
     <Screen style={styles.container}>
       <Image source={require("../assets/logo-red.png")} style={styles.logo} />
 
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="email"
-              keyboardType="email-address"
-              name="email"
-              placeholder="Email"
-              textContentType="emailAddress"
-            />
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          keyboardType="email-address"
+          name="email"
+          placeholder="Email"
+          textContentType="emailAddress"
+        />
 
-            <AppFormField
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="lock"
-              name="password"
-              placeholder="Password"
-              secureTextEntry
-              textContentType="password"
-            />
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          name="password"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
 
-            <AppSubmitButton title="Login" />
-          </>
-        )}
-      </Formik>
+        <AppSubmitButton title="Login" />
+      </AppForm>
     </Screen>
   );
 };
