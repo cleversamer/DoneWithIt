@@ -12,18 +12,16 @@ import defaultStyles from "../../config/styles";
 import colors from "../../config/colors";
 import AppText from "../AppText";
 import PickerItem from "../PickerItem";
+import { useFormikContext } from "formik";
 
-const AppFormPicker = ({
-  icon,
-  placeholder,
-  items,
-  selectedItem,
-  onSelectItem,
-}) => {
+const AppFormPicker = ({ icon, placeholder, items, name }) => {
+  const { setFieldValue } = useFormikContext();
+  const [selectedItem, setSelectedItem] = useState(items[0]);
   const [showModal, setShowModal] = useState(false);
 
   const handleSelectItem = (item) => {
-    onSelectItem(item);
+    setFieldValue(name, item);
+    setSelectedItem(item);
     setShowModal(false);
   };
 
