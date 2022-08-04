@@ -3,7 +3,6 @@ import {
   Swipeable,
   GestureHandlerRootView,
 } from "react-native-gesture-handler";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "../AppText";
 import colors from "../../config/colors";
 import Chevron from "../Icon";
@@ -23,12 +22,18 @@ const ListItem = ({
         <TouchableHighlight onPress={onPress} underlayColor={colors.lightgrey}>
           <View style={[styles.container, style]}>
             {Icon}
+
             {image && <Image style={styles.image} source={image} />}
 
             <View style={styles.detailsContainer}>
-              <AppText style={styles.title}>{title}</AppText>
+              <AppText style={styles.title} numberOfLines={1}>
+                {title}
+              </AppText>
+
               {subTitle && (
-                <AppText style={styles.subTitle}>{subTitle}</AppText>
+                <AppText style={styles.subTitle} numberOfLines={2}>
+                  {subTitle}
+                </AppText>
               )}
             </View>
 
