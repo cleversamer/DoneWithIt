@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FlatList, View } from "react-native";
 import Screen from "../components/Screen";
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import {
+  ListItem,
+  ListItemSeparator,
+  ListItemDeleteAction,
+} from "../components/lists";
 
 const MessagesScreen = (props) => {
   const [refreshing, setRefreshing] = useState(false);

@@ -7,13 +7,13 @@ import {
   Button,
   FlatList,
 } from "react-native";
-import Icon from "./Icon";
-import defaultStyles from "../config/styles";
-import colors from "../config/colors";
-import AppText from "./AppText";
-import PickerItem from "./PickerItem";
+import Icon from "../Icon";
+import defaultStyles from "../../config/styles";
+import colors from "../../config/colors";
+import AppText from "../AppText";
+import PickerItem from "../PickerItem";
 
-const AppPicker = ({
+const AppFormPicker = ({
   icon,
   placeholder,
   items,
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppPicker;
+export default AppFormPicker;

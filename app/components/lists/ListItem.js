@@ -3,8 +3,8 @@ import {
   Swipeable,
   GestureHandlerRootView,
 } from "react-native-gesture-handler";
-import AppText from "./AppText";
-import colors from "../config/colors";
+import AppText from "../AppText";
+import colors from "../../config/colors";
 
 const ListItem = ({
   Icon,
