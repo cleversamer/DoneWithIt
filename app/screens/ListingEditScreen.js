@@ -11,13 +11,30 @@ import {
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
+import errors from "../config/errors.json";
 
 const validationSchema = Yup.object().shape({
-  title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().required().min(1).max(10000).label("Price"),
+  title: Yup.string(errors.formInputs.title.invalid)
+    .required(errors.formInputs.title.unset)
+    .min(1)
+    .label("Title"),
+
+  price: Yup.number(errors.formInputs.price.invalid)
+    .required(errors.formInputs.price.unset)
+    .min(1)
+    .max(10000)
+    .label("Price"),
+
   description: Yup.string().label("Description"),
-  category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().min(1, "Please select at leat one image."),
+
+  category: Yup.object(errors.formInputs.category.invalid)
+    .required(errors.formInputs.category.unset)
+    .nullable()
+    .label("Category"),
+
+  images: Yup.array(errors.formInputs.images.invalid)
+    .required(errors.formInputs.images.unset)
+    .min(1, errors.formInputs.images.unset),
 });
 
 const categories = [

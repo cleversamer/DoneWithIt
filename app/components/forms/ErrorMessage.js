@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   error: {
     color: colors.danger,
     fontSize: 12,
-    marginLeft: 20,
   },
 });
 
