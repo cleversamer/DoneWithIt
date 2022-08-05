@@ -10,15 +10,19 @@ A market place for selling the stuff people don't need anymore.
 
 - Expo
 - Expo Constants
+- Expo Image Picker
+- Expo Location
 - Expo Status Bar
 - Expo Updates
-- Expo Vector Icons
+- Expo/vector-icons
+- Formik
 - React
 - React DOM
 - React Native
-- React Native Community/Hooks
+- React Native Community/hooks
 - React Native Gesture Handler
 - React Native Web
+- Yup
 
 ### Installing
 
