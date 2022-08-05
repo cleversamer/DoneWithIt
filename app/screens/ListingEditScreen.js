@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import * as Location from "expo-location";
 
 import {
   AppForm as Form,
@@ -11,6 +9,7 @@ import {
 } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -27,24 +26,7 @@ const categories = [
 ];
 
 const ListingEditScreen = () => {
-  const [location, setLocation] = useState(null);
-
-  useEffect(() => {
-    requestLocation();
-  }, []);
-
-  const requestLocation = async () => {
-    const { granted } = await Location.requestForegroundPermissionsAsync();
-    if (!granted) {
-      return;
-    }
-
-    const {
-      coords: { latitude, longitude },
-    } = await Location.getCurrentPositionAsync();
-
-    setLocation({ latitude, longitude });
-  };
+  const location = useLocation();
 
   const handleSubmit = (values) => {
     console.log(location);
