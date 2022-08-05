@@ -1,89 +1,24 @@
-import { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Modal,
-  Button,
-  FlatList,
-} from "react-native";
-import Icon from "../Icon";
-import colors from "../../config/colors";
-import AppText from "../AppText";
-import PickerItem from "../PickerItem";
 import { useFormikContext } from "formik";
+import FormPicker from "../FormPicker";
+import ErrorMessage from "./ErrorMessage";
 
-const AppFormPicker = ({ icon, placeholder, items, name, width = "100%" }) => {
-  const { setFieldValue } = useFormikContext();
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+const AppFormPicker = ({ name, ...others }) => {
+  const { errors, values, setFieldValue } = useFormikContext();
 
   const handleSelectItem = (item) => {
     setFieldValue(name, item);
-    setSelectedItem(item);
-    setShowModal(false);
   };
 
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setShowModal(true)}>
-        <View style={[styles.container, { width }]}>
-          <Icon
-            name={icon}
-            backgroundColor={colors.lightgrey}
-            iconColor={colors.grey}
-          />
-
-          {selectedItem ? (
-            <AppText style={styles.text}>{selectedItem.label}</AppText>
-          ) : (
-            <AppText style={styles.placeholder}>{placeholder}</AppText>
-          )}
-
-          <Icon
-            name="chevron-down"
-            backgroundColor={colors.lightgrey}
-            iconColor={colors.grey}
-          />
-        </View>
-      </TouchableWithoutFeedback>
-
-      <Modal visible={showModal} animationType="slide">
-        <Button title="Close" onPress={() => setShowModal(false)} />
-
-        <FlatList
-          data={items}
-          keyExtractor={(item) => item.value.toString()}
-          renderItem={({ item, index, separators }) => (
-            <PickerItem
-              key={index}
-              item={item}
-              onPress={() => handleSelectItem(item)}
-            />
-          )}
-        />
-      </Modal>
+      <FormPicker
+        items={values[name]}
+        onSelectItem={handleSelectItem}
+        {...others}
+      />
+      <ErrorMessage error={errors[name]} visible />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.lightgrey,
-    borderRadius: 25,
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    padding: 10,
-    marginVertical: 10,
-  },
-  placeholder: {
-    color: colors.grey,
-    flex: 1,
-  },
-  text: {
-    flex: 1,
-  },
-});
 
 export default AppFormPicker;
