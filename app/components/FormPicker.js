@@ -6,67 +6,70 @@ import {
   Modal,
   Button,
   FlatList,
+  Text,
 } from "react-native";
-import Icon from "./Icon";
-import colors from "../config/colors";
-import AppText from "./AppText";
+import Screen from "./Screen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PickerItem from "./PickerItem";
+import colors from "../config/colors";
 
 const FormPicker = ({
   icon,
-  onSelectItem,
-  placeholder,
   items,
-  name,
+  numberOfColumns = 1,
+  onSelectItem,
+  PickerItemComponent = PickerItem,
+  placeholder,
+  selectedItem,
   width = "100%",
 }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
-  const handleSelectItem = (item) => {
-    onSelectItem(item);
-    setSelectedItem(item);
-    setShowModal(false);
-  };
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setShowModal(true)}>
+      <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={[styles.container, { width }]}>
-          <Icon
-            name={icon}
-            backgroundColor={colors.lightgrey}
-            iconColor={colors.grey}
-          />
-
-          {selectedItem ? (
-            <AppText style={styles.text}>{selectedItem.label}</AppText>
-          ) : (
-            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          {icon && (
+            <MaterialCommunityIcons
+              name={icon}
+              size={20}
+              color={colors.grey}
+              style={styles.icon}
+            />
           )}
 
-          <Icon
+          {selectedItem ? (
+            <Text style={styles.text}>{selectedItem.label}</Text>
+          ) : (
+            <Text style={styles.placeholder}>{placeholder}</Text>
+          )}
+
+          <MaterialCommunityIcons
             name="chevron-down"
-            backgroundColor={colors.lightgrey}
-            iconColor={colors.grey}
+            size={20}
+            color={colors.grey}
           />
         </View>
       </TouchableWithoutFeedback>
-
-      <Modal visible={showModal} animationType="slide">
-        <Button title="Close" onPress={() => setShowModal(false)} />
-
-        <FlatList
-          data={items}
-          keyExtractor={(item) => item.value.toString()}
-          renderItem={({ item, index, separators }) => (
-            <PickerItem
-              key={index}
-              item={item}
-              onPress={() => handleSelectItem(item)}
-            />
-          )}
-        />
+      <Modal visible={modalVisible} animationType="slide">
+        <Screen>
+          <Button title="Close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
+            renderItem={({ item }) => (
+              <PickerItemComponent
+                item={item}
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
+            )}
+          />
+        </Screen>
       </Modal>
     </>
   );
@@ -88,6 +91,9 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+  },
+  icon: {
+    marginRight: 10,
   },
 });
 
