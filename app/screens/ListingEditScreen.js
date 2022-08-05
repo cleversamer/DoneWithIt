@@ -45,7 +45,7 @@ const ListingEditScreen = () => {
           keyboardType="numeric"
           maxLength={8}
           name="price"
-          placeholder="Price"
+          placeholder="$ Price"
           width={120}
         />
 

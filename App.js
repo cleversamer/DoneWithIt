@@ -1,9 +1,18 @@
-import MessagesScreen from "./app/screens/MessagesScreen";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import { useState } from "react";
+import Screen from "./app/components/Screen";
+import ImageInput from "./app/components/ImageInput";
 
 const App = () => {
-  return <ListingEditScreen />;
+  const [imageUri, setImageUri] = useState("");
+
+  return (
+    <Screen>
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(imageUri) => setImageUri(imageUri)}
+      />
+    </Screen>
+  );
 };
 
 export default App;
