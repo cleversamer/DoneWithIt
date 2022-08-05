@@ -32,7 +32,7 @@ const FormPicker = ({
           {icon && (
             <MaterialCommunityIcons
               name={icon}
-              size={20}
+              size={30}
               color={colors.grey}
               style={styles.icon}
             />
