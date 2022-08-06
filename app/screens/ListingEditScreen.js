@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import * as Yup from "yup";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 
@@ -77,14 +78,11 @@ const categories = [
 ];
 
 const ListingEditScreen = () => {
+  const navigation = useNavigation();
   const location = useLocation();
 
   const handleSubmit = (values) => {
-    try {
-      console.log(location);
-    } catch (err) {
-      console.log(err.message);
-    }
+    navigation.navigate("Login");
   };
 
   return (

@@ -14,14 +14,18 @@ A market place for selling the stuff people don't need anymore.
 - Expo Location
 - Expo Status Bar
 - Expo Updates
-- Expo/vector-icons
+- Expo/Vector Icons
 - Formik
 - React
 - React DOM
 - React Native
-- React Native Community/hooks
+- React Native Community/Hooks
 - React Native Gesture Handler
+- React Native Safe Area Context
+- React Native Screens
 - React Native Web
+- React Navigation/Native
+- React Navigation/Native Stack
 - Yup
 
 ### Installing
