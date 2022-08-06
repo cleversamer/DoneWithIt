@@ -8,6 +8,7 @@ A market place for selling the stuff people don't need anymore.
 
 ### Dependencies
 
+- Apisauce
 - Expo
 - Expo Constants
 - Expo Image Picker
@@ -24,6 +25,7 @@ A market place for selling the stuff people don't need anymore.
 - React Native Safe Area Context
 - React Native Screens
 - React Native Web
+- React Navigation/Bottom Tabs
 - React Navigation/Native
 - React Navigation/Native Stack
 - Yup
