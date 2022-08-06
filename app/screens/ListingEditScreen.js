@@ -12,6 +12,7 @@ import {
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
+import routes from "../navigation/routes";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -82,7 +83,7 @@ const ListingEditScreen = () => {
   const location = useLocation();
 
   const handleSubmit = (values) => {
-    navigation.navigate("Login");
+    navigation.navigate(routes.LOGIN);
   };
 
   return (

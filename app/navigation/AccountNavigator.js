@@ -8,7 +8,7 @@ import { screenOptions } from "./default";
 const Stack = createNativeStackNavigator();
 
 const AccountNavigator = () => (
-  <Stack.Navigator screenOptions={screenOptions}>
+  <Stack.Navigator initialRouteName="Account" screenOptions={screenOptions}>
     <Stack.Screen name="Account" component={AccountScreen} />
     <Stack.Screen name="Messages" component={MessagesScreen} />
   </Stack.Navigator>

@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export const screenOptions = {
   headerShown: false,
-  contentStyle: { backgroundColor: "transparent" },
+  contentStyle: { backgroundColor: "#fff" },
 };
 
 export const NewListingButton = ({ onPress }) => {
