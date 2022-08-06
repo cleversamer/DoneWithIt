@@ -1,22 +1,24 @@
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-const Card = ({ image, title, subTitle }) => {
+const Card = ({ image, title, subTitle, onPress }) => {
   return (
-    <View style={styles.card}>
-      <Image source={image} style={styles.image} />
+    <TouchableOpacity onPress={onPress} style={styles.card}>
+      <View style={styles.card}>
+        <Image source={image} style={styles.image} />
 
-      <View style={styles.detailsContainer}>
-        <AppText style={styles.title} numberOfLines={2}>
-          {title}
-        </AppText>
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.title} numberOfLines={2}>
+            {title}
+          </AppText>
 
-        <AppText style={styles.subTitle} numberOfLines={1}>
-          {subTitle}
-        </AppText>
+          <AppText style={styles.subTitle} numberOfLines={1}>
+            {subTitle}
+          </AppText>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

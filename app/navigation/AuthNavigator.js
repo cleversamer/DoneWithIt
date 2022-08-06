@@ -4,9 +4,11 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 
+import { screenOptions } from "./default";
+
 const Stack = createNativeStackNavigator();
 
-const AuthNavigator = ({ screenOptions }) => (
+const AuthNavigator = () => (
   <Stack.Navigator screenOptions={screenOptions}>
     <Stack.Screen name="Welcome" component={WelcomeScreen} />
     <Stack.Screen name="Login" component={LoginScreen} />
