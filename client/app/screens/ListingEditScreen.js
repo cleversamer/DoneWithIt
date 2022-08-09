@@ -11,6 +11,7 @@ import {
 } from "../components/forms";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
+import listingsApi from "../api/listings";
 import useLocation from "../hooks/useLocation";
 import routes from "../navigation/routes";
 
@@ -82,8 +83,13 @@ const ListingEditScreen = () => {
   const navigation = useNavigation();
   const location = useLocation();
 
-  const handleSubmit = (values) => {
-    navigation.navigate(routes.LOGIN);
+  const handleSubmit = async (listing) => {
+    const result = await listingsApi.addListing({ ...listing, location });
+    if (!result.ok) {
+      return alert("Could not save listing...");
+    }
+
+    alert("Liting saved successfully!");
   };
 
   return (
