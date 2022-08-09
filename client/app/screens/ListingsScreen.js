@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
+import AppText from "../components/AppText";
+import AppButton from "../components/AppButton";
 
 const ListingsScreen = ({ navigation }) => {
   const [listings, setListings] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     loadListings();
@@ -15,32 +18,59 @@ const ListingsScreen = ({ navigation }) => {
 
   const loadListings = async () => {
     const response = await listingsApi.getListings();
+    if (!response.ok) {
+      return setError(true);
+    }
+
+    setError(false);
     setListings(response.data);
   };
 
   return (
     <Screen style={styles.screen}>
-      <FlatList
-        data={listings}
-        keyExtractor={(listing) => listing.id.toString()}
-        renderItem={({ item, index, separators }) => (
-          <Card
-            title={item.title}
-            subTitle={`$${item.price}`}
-            imageUrl={item.images[0].url}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-          />
-        )}
-      />
+      {error ? (
+        <View style={styles.errorScreen}>
+          <AppText style={styles.errorMessage}>
+            Couldn't retrieve listings...
+          </AppText>
+
+          <AppButton onPress={loadListings}>Retry</AppButton>
+        </View>
+      ) : (
+        <FlatList
+          data={listings}
+          keyExtractor={(listing) => listing.id.toString()}
+          renderItem={({ item, index, separators }) => (
+            <Card
+              title={item.title}
+              subTitle={`$${item.price}`}
+              imageUrl={item.images[0].url}
+              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+            />
+          )}
+        />
+      )}
     </Screen>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
+    backgroundColor: colors.lightgrey,
     flex: 1,
     padding: 20,
-    backgroundColor: colors.lightgrey,
+  },
+  errorScreen: {
+    alignContent: "center",
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+  },
+  errorMessage: {
+    color: colors.danger,
+    fontSize: 14,
+    marginBottom: 50,
+    textAlign: "center",
   },
 });
 
