@@ -6,21 +6,6 @@ import colors from "../config/colors";
 import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
 
-const listings = [
-  {
-    id: 1,
-    title: "Red jacket for sale",
-    price: 100,
-    image: require("../assets/jacket.jpg"),
-  },
-  {
-    id: 2,
-    title: "Couch in great condition",
-    price: 1000,
-    image: require("../assets/couch.jpg"),
-  },
-];
-
 const ListingsScreen = ({ navigation }) => {
   const [listings, setListings] = useState([]);
 
