@@ -14,7 +14,6 @@ import FormImagePicker from "../components/forms/FormImagePicker";
 import Screen from "../components/Screen";
 import listingsApi from "../api/listings";
 import useLocation from "../hooks/useLocation";
-import routes from "../navigation/routes";
 import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
@@ -22,6 +21,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
 const categories = [
