@@ -1,23 +1,28 @@
-import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import Card from "../components/Card";
-import Screen from "../components/Screen";
-import colors from "../config/colors";
-import routes from "../navigation/routes";
-import listingsApi from "../api/listings";
-import AppText from "../components/AppText";
+import { useEffect, useState } from "react";
+import AppActivityIndicator from "../components/AppActivityIndicator";
 import AppButton from "../components/AppButton";
+import AppText from "../components/AppText";
+import Card from "../components/Card";
+import colors from "../config/colors";
+import listingsApi from "../api/listings";
+import routes from "../navigation/routes";
+import Screen from "../components/Screen";
 
 const ListingsScreen = ({ navigation }) => {
   const [listings, setListings] = useState([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadListings();
   }, []);
 
   const loadListings = async () => {
+    setLoading(true);
     const response = await listingsApi.getListings();
+    setLoading(false);
+
     if (!response.ok) {
       return setError(true);
     }
@@ -28,7 +33,7 @@ const ListingsScreen = ({ navigation }) => {
 
   return (
     <Screen style={styles.screen}>
-      {error ? (
+      {error && (
         <View style={styles.errorScreen}>
           <AppText style={styles.errorMessage}>
             Couldn't retrieve listings...
@@ -36,20 +41,22 @@ const ListingsScreen = ({ navigation }) => {
 
           <AppButton onPress={loadListings}>Retry</AppButton>
         </View>
-      ) : (
-        <FlatList
-          data={listings}
-          keyExtractor={(listing) => listing.id.toString()}
-          renderItem={({ item, index, separators }) => (
-            <Card
-              title={item.title}
-              subTitle={`$${item.price}`}
-              imageUrl={item.images[0].url}
-              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            />
-          )}
-        />
       )}
+
+      <AppActivityIndicator visible={loading} />
+
+      <FlatList
+        data={listings}
+        keyExtractor={(listing) => listing.id.toString()}
+        renderItem={({ item, index, separators }) => (
+          <Card
+            title={item.title}
+            subTitle={`$${item.price}`}
+            imageUrl={item.images[0].url}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+          />
+        )}
+      />
     </Screen>
   );
 };
