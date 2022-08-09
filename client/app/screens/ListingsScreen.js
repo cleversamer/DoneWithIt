@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AppActivityIndicator from "../components/AppActivityIndicator";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
@@ -8,45 +8,31 @@ import colors from "../config/colors";
 import listingsApi from "../api/listings";
 import routes from "../navigation/routes";
 import Screen from "../components/Screen";
+import useApi from "../hooks/useApi";
 
 const ListingsScreen = ({ navigation }) => {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const getListingsApi = useApi(listingsApi.getListings);
 
   useEffect(() => {
-    loadListings();
+    getListingsApi.request();
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) {
-      return setError(true);
-    }
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
-      {error && (
+      {getListingsApi.error && (
         <View style={styles.errorScreen}>
           <AppText style={styles.errorMessage}>
             Couldn't retrieve listings...
           </AppText>
 
-          <AppButton onPress={loadListings}>Retry</AppButton>
+          <AppButton onPress={getListingsApi.request}>Retry</AppButton>
         </View>
       )}
 
-      <AppActivityIndicator visible={loading} />
+      <AppActivityIndicator visible={getListingsApi.loading} />
 
       <FlatList
-        data={listings}
+        data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item, index, separators }) => (
           <Card
