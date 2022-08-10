@@ -18,6 +18,7 @@ A market place for selling the stuff people don't need anymore.
 - Expo Updates
 - Expo/Vector Icons
 - Formik
+- JWT Decode
 - Lottie React Native
 - React
 - React DOM
