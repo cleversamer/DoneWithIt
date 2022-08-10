@@ -21,8 +21,11 @@ A market place for selling the stuff people don't need anymore.
 - React
 - React DOM
 - React Native
+- React Native Async Sorage/Ssync Storage
 - React Native Community/Hooks
+- React Native Community/Netinfo
 - React Native Gesture Handler
+- React Native Progress
 - React Native Safe Area Context
 - React Native Screens
 - React Native Web
