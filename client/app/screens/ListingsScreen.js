@@ -36,10 +36,11 @@ const ListingsScreen = ({ navigation }) => {
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item, index, separators }) => (
           <Card
-            title={item.title}
-            subTitle={`$${item.price}`}
             imageUrl={item.images[0].url}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+            subTitle={`$${item.price}`}
+            thumbnailUrl={item.images[0].thumbnail}
+            title={item.title}
           />
         )}
       />

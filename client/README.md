@@ -10,6 +10,7 @@ A market place for selling the stuff people don't need anymore.
 
 - Apisauce
 - Expo
+- Expo Blur
 - Expo Constants
 - Expo Image Picker
 - Expo Location
@@ -24,6 +25,7 @@ A market place for selling the stuff people don't need anymore.
 - React Native Async Sorage/Ssync Storage
 - React Native Community/Hooks
 - React Native Community/Netinfo
+- React Native Expo Image Cache
 - React Native Gesture Handler
 - React Native Progress
 - React Native Safe Area Context
