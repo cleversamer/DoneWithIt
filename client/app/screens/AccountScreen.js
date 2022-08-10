@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import AuthContext from "../auth/context";
 import { FlatList, StyleSheet, View } from "react-native";
 import Screen from "../components/Screen";
 import Icon from "../components/Icon";
@@ -24,12 +26,14 @@ const menuItems = [
 ];
 
 const AccountScreen = ({ navigation }) => {
+  const { user, setUser } = useContext(AuthContext);
+
   return (
     <Screen>
       <View style={styles.container}>
         <ListItem
-          title="Mosh Hamedani"
-          subTitle="programmingwithmosh@gmail.com"
+          title={user.name}
+          subTitle={user.email}
           image={require("../assets/mosh.jpg")}
         />
       </View>
@@ -59,6 +63,7 @@ const AccountScreen = ({ navigation }) => {
       <ListItem
         style={styles.container}
         title="Logout"
+        onPress={() => setUser(null)}
         Icon={<Icon name="logout" backgroundColor={colors.lightyellow} />}
       />
     </Screen>
