@@ -14,6 +14,7 @@ A market place for selling the stuff people don't need anymore.
 - Expo Constants
 - Expo Image Picker
 - Expo Location
+- Expo Secure Store
 - Expo Status Bar
 - Expo Updates
 - Expo/Vector Icons
