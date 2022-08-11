@@ -9,6 +9,7 @@ A market place for selling the stuff people don't need anymore.
 ### Dependencies
 
 - Apisauce
+- Bugsnag/Expo
 - Expo
 - Expo Blur
 - Expo Constants

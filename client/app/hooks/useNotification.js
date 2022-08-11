@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import * as Notifications from "expo-notifications";
 import expoPushTokenApi from "../api/expoPushToken";
 import useAuth from "../auth/useAuth";
+import logger from "../utility/logger";
 
 const useNotifications = (notificationListener) => {
   const { user } = useAuth();
@@ -26,7 +27,7 @@ const useNotifications = (notificationListener) => {
       const token = await Notifications.getExpoPushTokenAsync();
       expoPushTokenApi.register(token);
     } catch (err) {
-      console.log(err);
+      logger.log(err);
     }
   };
 };

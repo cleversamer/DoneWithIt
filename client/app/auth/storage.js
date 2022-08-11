@@ -1,5 +1,6 @@
 import * as SecureStore from "expo-secure-store";
 import jwtDecode from "jwt-decode";
+import logger from "../utility/logger";
 
 const key = "authToken";
 
@@ -7,7 +8,7 @@ const storeToken = async (token) => {
   try {
     await SecureStore.setItemAsync(key, token);
   } catch (err) {
-    console.log(err);
+    logger.log(err);
   }
 };
 
@@ -15,7 +16,7 @@ const getToken = async () => {
   try {
     return await SecureStore.getItemAsync(key);
   } catch (err) {
-    console.log(err);
+    logger.log(err);
   }
 };
 
@@ -32,7 +33,7 @@ const removeToken = async () => {
   try {
     await SecureStore.deleteItemAsync(key);
   } catch (err) {
-    console.log(err);
+    logger.log(err);
   }
 };
 

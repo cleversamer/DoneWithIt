@@ -3,6 +3,7 @@ import { TouchableOpacity, StyleSheet, Image, Alert } from "react-native";
 import Icon from "./Icon";
 import * as ImagePicker from "expo-image-picker";
 import colors from "../config/colors";
+import logger from "../utility/logger";
 
 const ImageInput = ({ imageUri, onChangeImage }) => {
   useEffect(() => {
@@ -38,7 +39,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
         onChangeImage(result.uri);
       }
     } catch (error) {
-      console.log(error.message);
+      logger.log(err);
     }
   };
 

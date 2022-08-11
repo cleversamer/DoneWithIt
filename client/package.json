@@ -15,6 +15,7 @@
     "fix": "expo doctor --fix-dependencies"
   },
   "dependencies": {
+    "@bugsnag/expo": "^45.1.1",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-community/hooks": "^2.8.1",

@@ -6,6 +6,9 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import authStorage from "./app/auth/storage";
 import OfflineNotice from "./app/components/OfflineNotice";
 import { navigationRef } from "./app/navigation/rootNavigation";
+import logger from "./app/utility/logger";
+
+logger.start();
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -21,7 +24,7 @@ const App = () => {
       setUser(user);
       setLoading(false);
     } catch (err) {
-      console.log(err);
+      logger.log(err);
     }
   };
 

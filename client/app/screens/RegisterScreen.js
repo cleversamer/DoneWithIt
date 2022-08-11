@@ -12,6 +12,7 @@ import {
 import usersApi from "../api/users";
 import authApi from "../api/auth";
 import useAuth from "../auth/useAuth";
+import logger from "../utility/logger";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -42,7 +43,7 @@ const RegisterScreen = () => {
       );
       auth.login(token);
     } catch (err) {
-      console.log(err.message);
+      logger.log(err);
     }
   };
 
