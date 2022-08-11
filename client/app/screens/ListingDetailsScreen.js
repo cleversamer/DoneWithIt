@@ -1,6 +1,7 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView, Platform } from "react-native";
 import { Image } from "react-native-expo-image-cache";
 import AppText from "../components/AppText";
+import ContactSellerForm from "../components/ContactSellerForm";
 import { ListItem } from "../components/lists";
 import colors from "../config/colors";
 
@@ -8,27 +9,34 @@ const ListingDetailsScreen = ({ route }) => {
   const listing = route.params;
 
   return (
-    <View>
-      <Image
-        preview={{ uri: listing.images[0].thumbnail }}
-        style={styles.image}
-        tint="light"
-        uri={listing.images[0].url}
-      />
+    <KeyboardAvoidingView
+      behavior="position"
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+    >
+      <View>
+        <Image
+          preview={{ uri: listing.images[0].thumbnail }}
+          style={styles.image}
+          tint="light"
+          uri={listing.images[0].url}
+        />
 
-      <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{listing.title}</AppText>
-        <AppText style={styles.price} color="secondary">
-          ${listing.price}
-        </AppText>
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.title}>{listing.title}</AppText>
+          <AppText style={styles.price} color="secondary">
+            ${listing.price}
+          </AppText>
+
+          <ListItem
+            image={require("../assets/mosh.jpg")}
+            title="Mosh Hamedani"
+            subTitle="5 listings"
+          />
+
+          <ContactSellerForm listing={listing} />
+        </View>
       </View>
-
-      <ListItem
-        image={require("../assets/mosh.jpg")}
-        title="Mosh Hamedani"
-        subTitle="5 listings"
-      />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

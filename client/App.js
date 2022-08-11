@@ -5,6 +5,7 @@ import AuthContext from "./app/auth/context";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import authStorage from "./app/auth/storage";
 import OfflineNotice from "./app/components/OfflineNotice";
+import { navigationRef } from "./app/navigation/rootNavigation";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -32,7 +33,7 @@ const App = () => {
     <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />
 
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>
