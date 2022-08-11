@@ -28,8 +28,8 @@ const ListingDetailsScreen = ({ route }) => {
           </AppText>
 
           <ListItem
-            image={require("../assets/mosh.jpg")}
-            title="Mosh Hamedani"
+            image={require("../assets/samer.jpg")}
+            title="Samer A.⚡"
             subTitle="5 listings"
           />
 

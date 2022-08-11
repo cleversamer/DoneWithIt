@@ -12,16 +12,16 @@ const MessagesScreen = (props) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      title: "Mosh Hamedani",
+      title: "Samer A.⚡",
       description: "Hey! Is this item sill available?",
-      image: require("../assets/mosh.jpg"),
+      image: require("../assets/samer.jpg"),
     },
     {
       id: 2,
-      title: "Mosh Hamedani",
+      title: "Samer A.⚡",
       description:
         "I'm interested in this item. When you will be able to post it?",
-      image: require("../assets/mosh.jpg"),
+      image: require("../assets/samer.jpg"),
     },
   ]);
 
