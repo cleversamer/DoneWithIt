@@ -5,10 +5,10 @@ const settings = {
     apiUrl: "http://192.168.1.235:9000/api",
   },
   staging: {
-    apiUrl: "http://192.168.1.235:9000/api",
+    apiUrl: "https://samer-donewithit.herokuapp.com/api",
   },
   production: {
-    apiUrl: "http://192.168.1.235:9000/api",
+    apiUrl: "https://samer-donewithit.herokuapp.com/api",
   },
 };
 
