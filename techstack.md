@@ -42,7 +42,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [cleversamerr/DoneWithIt](https://github.com/cleversamerr/DoneWithIt)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|28<br/>Tools used|12/24/23 <br/>Report generated|
+|29<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -171,9 +171,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (15)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (16)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (15)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (16)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -192,6 +192,7 @@ Full tech stack [here](/techstack.md)
 |[react-native](https://www.npmjs.com/react-native)|v0.68.2|08/10/22|Samer A |MIT|N/A|
 |[react-native-web](https://www.npmjs.com/react-native-web)|v0.17.7|08/10/22|Samer A |MIT|N/A|
 |[sharp](https://www.npmjs.com/sharp)|v0.30.7|08/06/22|Samer A |Apache-2.0|[](https://github.com/advisories/GHSA-54xq-cgqr-rpm3) (High)|
+|[yup](https://www.npmjs.com/yup)|v0.32.11|08/01/22|Samer A |MIT|N/A|
 
 <br/>
 <div align='center'>
