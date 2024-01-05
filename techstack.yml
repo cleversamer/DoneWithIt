@@ -2,11 +2,11 @@ repo_name: cleversamerr/DoneWithIt
 report_id: eba34e344315c722445b4dc6a195dd24
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-24T12:40:27+00:00'
+timestamp: '2024-01-05T08:16:01+00:00'
 requested_by: cleversamerr
 provider: github
 branch: main
-detected_tools_count: 28
+detected_tools_count: 29
 tools:
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -17,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/cleversamerr/DoneWithIt
   detection_source: Repo Metadata
 - name: Expo
   description: Build one project that runs natively on all your users' devices
@@ -26,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Cross-Platform Mobile Development
   image_url: https://img.stackshare.io/service/5795/default_683a3de22a6983c41f27b04348f4c7380c5e3c21.jpg
+  detection_source_url: https://github.com/cleversamerr/DoneWithIt/blob/main/client/package.json
   detection_source: client/package.json
   last_updated_by: Samer A
   last_updated_on: 2022-08-01 14:42:42.000000000 Z
@@ -94,6 +96,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/cleversamerr/DoneWithIt
   detection_source: Repo Metadata
 - name: nodemon
   description: A simple monitor script for use during development of a node.js app
@@ -117,6 +120,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/cleversamerr/DoneWithIt/blob/main/server/package.json
   detection_source: server/package.json
   last_updated_by: Samer A
   last_updated_on: 2022-08-06 11:29:58.000000000 Z
@@ -168,6 +172,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/10756/339286.png
+  detection_source_url: https://github.com/cleversamerr/DoneWithIt/blob/main/client/package.json
   detection_source: client/package.json
   last_updated_by: Samer A
   last_updated_on: 2022-08-01 14:42:42.000000000 Z
@@ -415,3 +420,17 @@ tools:
     detected_date: Nov 17
     severity: high
     first_patched: 0.32.6
+- name: yup
+  description: Dead simple Object schema validation
+  package_url: https://www.npmjs.com/yup
+  version: 0.32.11
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17215/default_37d9ccc57ae4d32e7ff46614e4f8bb2c4ddc7964.png
+  detection_source_url: https://github.com/cleversamerr/DoneWithIt/blob/main/client/package-lock.json
+  detection_source: client/package.json
+  last_updated_by: Samer A
+  last_updated_on: 2022-08-01 14:42:42.000000000 Z
